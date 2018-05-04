@@ -1,4 +1,4 @@
-#!/Users/zahira/eventbrite/Task_practice/env/bin/python
+#!/Users/zahira/eventbrite/To_do_list/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":

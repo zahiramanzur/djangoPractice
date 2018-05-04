@@ -16,9 +16,7 @@ SECRET_KEY = '%npq4xqqq&xmc(k8hqy&se0-#zlh&lio6lc2g-^g3ltubb(-^i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '127.0.0.1'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,6 +80,7 @@ SOCIAL_AUTH_PIPELINE = (
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -97,8 +96,8 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '604753414250-0e8jq4vl5qrsgtvhccr51d72kov1lr45.apps.googleusercontent.com'     #get_env_variable('SOCIAL_AUTH_FACEBOOK_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XnTqDfcgv5GR8F9vSTNXfGFD'  #get_env_variable('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_env_variable('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_env_variable('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 WSGI_APPLICATION = 'Task_practice.wsgi.application'
 
@@ -152,3 +151,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
