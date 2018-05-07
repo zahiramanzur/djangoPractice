@@ -9,8 +9,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
+    # import ipdb; ipdb.set_trace()
     return render(request, 'task/index.html')
 
 
-
-
+def profile(request):
+    username = None
+    if request.user.is_staff:
+        return redirect('/admin/')
+    else:
+        return render(request, 'accounts/profile/index.html', {})

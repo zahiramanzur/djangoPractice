@@ -73,6 +73,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.create_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.debug.debug',
+    'path.user_for_index.py',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
     'social_core.pipeline.debug.debug'
@@ -84,7 +85,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'next=/index'
 LOGOUT_REDIRECT_URL = 'index'
 
 

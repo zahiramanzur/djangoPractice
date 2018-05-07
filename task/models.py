@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 
 
@@ -18,5 +19,9 @@ class Task(models.Model):
     start_task = models.DateTimeField(blank=True, null=True)
     end_task = models.DateTimeField(blank=True, null=True)
     priority = models.ForeignKey(Priority)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+
 
